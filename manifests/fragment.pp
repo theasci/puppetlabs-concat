@@ -29,7 +29,7 @@ define concat::fragment(
   }
 
   validate_string($content)
-  if !(is_string($source) or is_array($source)) {
+  if !(is_string($source) or is_array($source) or $source == undef) {
     fail("${resource}['${title}']: 'source' is not a String or an Array.")
   }
 
