@@ -69,10 +69,10 @@ define concat(
   validate_re($ensure, '^present$|^absent$')
   validate_absolute_path($path)
   validate_string($mode)
-  if ! (is_string($owner) or is_integer($owner)) {
+  if ! (is_string($owner) or is_integer($owner) or $owner == undef) {
     fail("\$owner must be a string or integer, got ${owner}")
   }
-  if ! (is_string($group) or is_integer($group)) {
+  if ! (is_string($group) or is_integer($group) or $group == undef) {
     fail("\$group must be a string or integer, got ${group}")
   }
   if ! (is_string($warn) or $warn == true or $warn == false) {
